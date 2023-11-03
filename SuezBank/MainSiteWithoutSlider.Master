@@ -1,0 +1,135 @@
+﻿
+
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MainSiteWithoutSlider.Master.cs" Inherits="SuezBank.MainSite" %>
+
+
+<html lang="en">
+<head runat="server" >
+<title><%: Page.Title %> - Suez Bank Application</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" media="screen" href="css/reset.css">
+<link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
+<link rel="stylesheet" type="text/css" media="screen" href="css/slider.css">
+<link href='http://fonts.googleapis.com/css?family=Muli:400,300,300italic,400italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Passion+One:400,700' rel='stylesheet' type='text/css'>
+<script src="js/jquery-1.7.min.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+<script src="js/tms-0.4.1.js"></script>
+<script>
+    $(document)
+        .ready(function () {
+            $('.slider')
+                ._TMS({
+                    show: 0,
+                    pauseOnHover: true,
+                    prevBu: '.prev',
+                    nextBu: '.next',
+                    playBu: false,
+                    duration: 800,
+                    preset: 'fade',
+                    pagination: '.pags',
+                    pagNums: false,
+                    slideshow: 7000,
+                    numStatus: false,
+                    banners: 'fade',
+                    waitBannerAnimation: false,
+                    progressBar: false
+                })
+        });
+</script>
+
+
+    <asp:ContentPlaceHolder ID="header" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+
+      <div class="bg">
+  <div class="bg-2">
+          <header>
+             
+      <h1><a href="index.html"><img src="images/logo.png" alt=""></a></h1>
+      <nav>
+       
+        <ul class="menu">
+       <li class="current" style="padding: 0;"><a runat="server" href="default">Home</a></li>
+          <li style="padding: 0;"><a runat="server" href="Contact">Contacts Us</a></li>
+          <li style="padding: 0;"><a runat="server" href="ContactsData">Contact Data</a></li>
+            <li style="padding: 0;"><a runat="server" href="Account/Register">Register</a></li>
+             <li style="padding: 0;">   <%: Context.User.Identity.GetUserName()  %>  </li>
+      
+             
+      
+      
+        </ul>
+                
+      </nav>
+
+                 
+    </header>
+    <section id="content">
+     
+        <div class="page5-row1">
+      
+      <asp:ContentPlaceHolder ID="InfoContaint" runat="server">
+    </asp:ContentPlaceHolder>
+        
+          
+             <asp:ContentPlaceHolder ID="MainContent" runat="server">
+</asp:ContentPlaceHolder>
+       
+        
+      </div>
+
+    </section>
+                 </div>
+      </div>
+
+
+
+
+
+</body>
+</html>
+
+<%--        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" runat="server" href="~/">Application name</a>
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/About">About</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Contact">Contact</a></li>
+                    </ul>
+                    <asp:LoginView runat="server" ViewStateMode="Disabled">
+                        <AnonymousTemplate>
+                            <ul class="navbar-nav navbar-right">
+                                <li><a runat="server" class="nav-link" href="~/Account/Register">Register</a></li>
+                                <li><a runat="server" class="nav-link" href="~/Account/Login">Log in</a></li>
+                            </ul>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <ul class="navbar-nav navbar-right">
+                                <li><a runat="server" class="nav-link" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
+                                <li>
+                                    <asp:LoginStatus runat="server" CssClass="nav-link" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                </li>
+                            </ul>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                </div>
+            </div>
+        </nav>
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <footer>
+                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+            </footer>
+        </div>--%>
+
